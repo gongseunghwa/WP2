@@ -95,20 +95,14 @@
     document.querySelectorAll('.twit-delete').forEach(function(tag) {
         tag.addEventListener('click', function() {
             const myId = document.querySelector('#my-id');
-            console.log("============================");
-            console.log(myId);
-            console.log("============================");
+
             if (myId) {
                 const userId = tag.parentNode.querySelector('.twit-user-id').value;
-                console.log("============================");
-                console.log(userId);
-                console.log("============================");
+
                 if (userId == myId.value) {
                     if (confirm('삭제하시겠습니까?')) {
                         const postId = tag.parentNode.querySelector('.twit-id').value;
-                        console.log("============================");
-                        console.log(postId);
-                        console.log("============================");
+
                         axios.delete(`/post/${postId}/delete`)
                             .then(() => {
                                 location.reload();
